@@ -30,7 +30,7 @@ class AccountRetencionEfectuada(ModelSQL, ModelView):
     aliquot = fields.Float('Aliquot')
     date = fields.Date('Date', required=True)
     tax = fields.Many2One('account.retencion', 'Tax',
-        domain=[('type', '=', 'efectuada')])
+        domain=[('type', '=', 'efectuada')], required=True)
     voucher = fields.Many2One('account.voucher', 'Voucher')
     party = fields.Many2One('party.party', 'Party')
 
@@ -52,7 +52,7 @@ class AccountRetencionSoportada(ModelSQL, ModelView):
     amount = fields.Numeric('Amount', digits=(16, 2), required=True)
     date = fields.Date('Date', required=True)
     tax = fields.Many2One('account.retencion', 'Tax',
-        domain=[('type', '=', 'soportada')])
+        domain=[('type', '=', 'soportada')], required=True)
     voucher = fields.Many2One('account.voucher', 'Voucher')
     party = fields.Many2One('party.party', 'Party')
 
